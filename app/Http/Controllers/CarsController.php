@@ -43,8 +43,6 @@ class CarsController extends Controller
     public function store(CreateCarRequest $request)
 
     {
-        Log::info('This is some useful information.');
-
         return Car::create($request->all());
     }
 

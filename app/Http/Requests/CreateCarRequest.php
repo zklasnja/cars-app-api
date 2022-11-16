@@ -24,7 +24,6 @@ class CreateCarRequest extends FormRequest
      */
     public function rules()
     {
-        Log::info('This is some useful information.');
         return [
             'brand' => 'required|min:2',
             'model' => 'required|min:2',
