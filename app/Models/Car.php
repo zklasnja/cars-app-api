@@ -13,15 +13,15 @@ class Car extends Model
 
     protected $fillable = ['brand', 'model', 'year', 'max_speed', 'is_automatic', 'engine', 'number_of_doors'];
 
-    public function scopeSearchByBrand ($query, $brand){
-        return $query->when($brand, function ($query, $brand) {
-            $query->where('brand', $brand);
+    public function scopeSearchByBrand ($query, $term){
+        return $query->when($term, function ($query, $term) {
+            $query->where('brand', 'LIKE', '%'.$term.'%');
             });
     }
 
-    public function scopeSearchByModel ($query, $model) {
-        return $query->when($model, function ($query, $model) {
-            $query->where('model', $model);
+    public function scopeSearchByModel ($query, $term) {
+        return $query->when($term, function ($query, $term) {
+            $query->where('model', 'LIKE', '%'.$term.'%');
         });
     }
 }

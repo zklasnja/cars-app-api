@@ -18,8 +18,8 @@ class CarFactory extends Factory
     public function definition()
     {
         return [
-            'model' => fake()->randomElement(['Alfa Romeo', 'Ferrari', 'McLaren']),
-            'brand' => fake()->firstNameFemale(),
+            'model' => fake()->firstNameFemale(),
+            'brand' => fake()->randomElement(['Alfa Romeo', 'Ferrari', 'McLaren']),
             'year'=> fake()->numberBetween(1990, 2022),
             'max_speed'=> fake()->numberBetween($min = 0, $max = 400),
             'is_automatic'=> fake()->boolean(),
