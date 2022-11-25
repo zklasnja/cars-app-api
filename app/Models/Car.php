@@ -15,13 +15,13 @@ class Car extends Model
 
     public function scopeSearchByBrand ($query, $term){
         return $query->when($term, function ($query, $term) {
-            $query->where('brand', 'LIKE', '%'.$term.'%');
+            $query->orWhere('brand', 'LIKE', '%'.$term.'%');
             });
     }
 
     public function scopeSearchByModel ($query, $term) {
         return $query->when($term, function ($query, $term) {
-            $query->where('model', 'LIKE', '%'.$term.'%');
+            $query->orWhere('model', 'LIKE', '%'.$term.'%');
         });
     }
 }

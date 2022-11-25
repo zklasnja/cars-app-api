@@ -22,11 +22,12 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $perPage = request('per_page', 5);
+        $perPage = request('per_page', 10);
+        $searchTerm = request('searchTerm', '');
 
-        return Car::SearchByBrand(request('brand'))
-                    ->SearchByModel(request('model'))
-                    ->paginate($perPage);
+        return Car::SearchByBrand($searchTerm)
+            ->SearchByModel($searchTerm)
+            ->paginate($perPage);
     }
 
     /**
